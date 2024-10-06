@@ -3,6 +3,10 @@
 ## Step 1: Install Docker on your WSL/Ubuntu Environment
 
 In order to use the nvidia-container-toolkit we need to have docker in our WSL environment as just running Docker Desktop on our Windows Machine won't give Docker access to our gpu.  
+
+All commands are from the installation steps here: https://docs.docker.com/engine/install/ubuntu/ 
+
+  
   
 **Open up command prompt and enter the following commands:**
 
@@ -42,32 +46,12 @@ sudo apt-get update
 ```
 
 ```bash
-sudo apt-get install docker-ce docker-ce-cli containerd.io
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
 
-```bash
-sudo docker run hello-world
-```
+Note: If you have any issues with running docker commands without the sudo prefix in front follow the instructions here: https://docs.docker.com/engine/install/linux-postinstall/
 
-```bash
-docker run hello-world
-```
-
-```bash
-sudo groupadd docker
-```
-
-```bash
-sudo usermod -aG docker $USER
-```
-
-```bash
-newgrp docker
-```
-
-```bash
-docker run hello-world
-```
+## Step 2) 
 
 ```bash
 curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg \
