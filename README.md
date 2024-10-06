@@ -88,4 +88,30 @@ nvidia-smi
 
 ## Step 4: Edit the docker-compose.yml (and run_sim.sh file if you are using my scripts) 
 
+I provided the files in this GitHub repository all that is needed is for you to copy-paste the new code in if you followed my previous guide to installing scripts that you can use in the docker container.
+
+## Step 5: Running the simulation
+
+First start all the containers with the following command:
+
+```bash
+docker compose up -d
+```
+
+**If using an internet browser to view the simulation through NOvnc enter the command:**
+```bash
+scripts/run_sim.sh <your_package> <your_node> novnc 
+```
+
+**If running the RViz2 simulator directy on your PC enter the command:**
+```bash
+scripts/run_sim.sh <your_package> <your_node> local
+```
+
+**Note: If the package and node executable have the same exact name which is the case for the safety_node and wall_follow_node you can enter**
+```bash
+scripts/run_sim.sh wall_follow <local or novnc here>
+```
+
+
 
