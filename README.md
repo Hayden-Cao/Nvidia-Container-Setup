@@ -1,5 +1,14 @@
 # Nvidia-Container-Setup
 
+## Step 1: Install Docker on your WSL/Ubuntu Environment
+
+In order to use the nvidia-container-toolkit we need to have docker in our WSL environment as just running Docker Desktop on our Windows Machine won't give Docker access to our gpu.  
+**Open up command prompt and enter the following commands:**
+
+```bash
+bash
+```
+
 ```bash
 sudo apt-get update
 ```
