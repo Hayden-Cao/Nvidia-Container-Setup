@@ -51,7 +51,7 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 
 Note: If you have any issues with running docker commands without the sudo prefix in front follow the instructions here: https://docs.docker.com/engine/install/linux-postinstall/
 
-## Step 2: Installing the Nvidia Container Toolkit) 
+## Step 2: Installing the Nvidia Container Toolkit 
 
 **Enter the following commands:** 
 
@@ -78,12 +78,14 @@ sudo nvidia-ctk runtime configure --runtime=docker
 sudo systemctl restart docker
 ```
 
-## Step 3: Verify that Docker has access to your GPU)
+## Step 3: Verify that Docker has access to your GPU
 
 Enter the command
 
 ```bash
 nvidia-smi
 ```
+
+## Step 4: Edit the docker-compose.yml (and run_sim.sh file if you are using my scripts) 
 
 
