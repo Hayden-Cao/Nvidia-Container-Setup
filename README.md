@@ -1,13 +1,13 @@
 # Nvidia-Container-Setup
 
+## Prerequisites: Update the NVIDIA drivers for your GPU - https://www.nvidia.com/en-us/drivers/ 
+
 ## Step 1: Install Docker on your WSL/Ubuntu Environment
 
 In order to use the nvidia-container-toolkit we need to have docker in our WSL environment as just running Docker Desktop on our Windows Machine won't give Docker access to our gpu.  
 
 All commands are from the installation steps here: https://docs.docker.com/engine/install/ubuntu/ 
 
-  
-  
 **Open up command prompt and enter the following commands:**
 
 ```bash
@@ -51,7 +51,9 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin 
 
 Note: If you have any issues with running docker commands without the sudo prefix in front follow the instructions here: https://docs.docker.com/engine/install/linux-postinstall/
 
-## Step 2) 
+## Step 2: Installing the Nvidia Container Toolkit) 
+
+**Enter the following commands:** 
 
 ```bash
 curl -fsSL https://nvidia.github.io/libnvidia-container/gpgkey | sudo gpg --dearmor -o /usr/share/keyrings/nvidia-container-toolkit-keyring.gpg \
@@ -75,4 +77,13 @@ sudo nvidia-ctk runtime configure --runtime=docker
 ```bash
 sudo systemctl restart docker
 ```
+
+## Step 3: Verify that Docker has access to your GPU)
+
+Enter the command
+
+```bash
+nvidia-smi
+```
+
 
