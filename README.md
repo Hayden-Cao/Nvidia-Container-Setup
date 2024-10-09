@@ -2,6 +2,8 @@
 
 ## Prerequisites: Update the NVIDIA drivers for your GPU - https://www.nvidia.com/en-us/drivers/ 
 
+Link to Guide/Demo Video: https://youtu.be/gt_lfLW8lA0 
+
 ## Step 1: Install Docker on your WSL/Ubuntu Environment
 
 In order to use the nvidia-container-toolkit we need to have docker in our WSL environment as just running Docker Desktop on our Windows Machine won't give Docker access to our gpu.  
