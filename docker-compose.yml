@@ -1,0 +1,52 @@
+services:
+  sim_local:
+    image: f1tenth_gym_ros
+    build: ./
+    volumes:
+      - .:/sim_ws/src/f1tenth_gym_ros
+      - ./scripts:/sim_ws
+      - ./nodes:/sim_ws/src/nodes
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - ~/.tmux.conf:/root/.tmux.conf     
+    environment:
+      - DISPLAY=${DISPLAY}
+    networks:
+      - x11
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              capabilities: [gpu]
+              count: all
+    stdin_open: true
+    tty: true
+    runtime: nvidia
+
+  sim_novnc:
+    image: f1tenth_gym_ros
+    build: ./
+    volumes:
+      - .:/sim_ws/src/f1tenth_gym_ros
+      - ./scripts:/sim_ws
+      - ./nodes:/sim_ws/src/nodes
+      - ~/.tmux.conf:/root/.tmux.conf    
+    environment:
+      - DISPLAY=novnc:0.0
+    networks:
+      - x11
+    stdin_open: true
+    tty: true
+    
+  novnc:  
+    image: theasp/novnc:latest
+    environment:
+      - DISPLAY_WIDTH=1728
+      - DISPLAY_HEIGHT=972
+    ports:
+      - "8080:8080" 
+    networks:
+      - x11
+
+networks:
+  x11:
